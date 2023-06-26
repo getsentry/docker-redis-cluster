@@ -8,6 +8,7 @@ help:
 	@echo "  cli           run redis-cli inside the container on the server with port 7000"
 
 build:
+	docker buildx create --name multiarch --driver docker-container --use
 	docker buildx build --push --build-arg redis_version=7.0.10 --platform linux/amd64,linux/arm64 --tag ghcr.io/getsentry/redis-cluster:7.0.10 .
 
 up:
