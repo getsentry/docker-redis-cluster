@@ -8,12 +8,12 @@ help:
 	@echo "  cli           run redis-cli inside the container on the server with port 7000"
 
 build:
-	docker buildx build --output type=docker --build-arg redis_version=7.0.10 --platform linux/arm64 --tag beezz/redis-cluster:7.0.10-arm64 .
-	docker buildx build --output type=docker --build-arg redis_version=7.0.10 --platform linux/amd64 --tag beezz/redis-cluster:7.0.10-amd64 .
-	docker manifest create beezz/redis-cluster:7.0.10 --amend beezz/redis-cluster:7.0.10-amd64 --amend beezz/redis-cluster:7.0.10-arm64
+	docker buildx build --output type=docker --build-arg redis_version=7.0.10 --platform linux/arm64 --tag ghcr.io/getsentry/redis-cluster:7.0.10-arm64 .
+	docker buildx build --output type=docker --build-arg redis_version=7.0.10 --platform linux/amd64 --tag ghcr.io/getsentry/redis-cluster:7.0.10-amd64 .
+	docker manifest create ghcr.io/getsentry/redis-cluster:7.0.10 --amend ghcr.io/getsentry/redis-cluster:7.0.10-amd64 --amend ghcr.io/getsentry/redis-cluster:7.0.10-arm64
 
 push:
-	docker manifest push --purge beezz/redis-cluster:7.0.10
+	docker manifest push --purge ghcr.io/getsentry/redis-cluster:7.0.10
 
 up:
 	@echo "Ensure that you have run `make build` to use the latest image"
