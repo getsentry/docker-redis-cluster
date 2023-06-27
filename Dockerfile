@@ -1,6 +1,6 @@
 FROM redis:7.0.10
 
-LABEL org.opencontainers.image.source=https://github.com/getsentry/docker-redis-cluster
+LABEL org.opencontainers.image.source https://github.com/getsentry/docker-redis-cluster
 LABEL maintainer="Johan Andersson <Grokzen@gmail.com>"
 
 # Some Environment Variables
