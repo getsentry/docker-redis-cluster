@@ -9,7 +9,7 @@ help:
 
 build:
 	docker buildx create --name multiarch --driver docker-container --use
-	docker buildx build --push --build-arg redis_version=7.0.10 --platform linux/amd64,linux/arm64 --tag ghcr.io/getsentry/redis-cluster:7.0.10-oci .
+	docker buildx build --push --build-arg redis_version=7.0.10 --platform linux/amd64,linux/arm64 --tag ghcr.io/getsentry/redis-cluster:7.0.10 .
 
 up:
 	@echo "Ensure that you have run `make build` to use the latest image"
